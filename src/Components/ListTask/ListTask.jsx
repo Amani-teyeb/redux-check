@@ -1,19 +1,34 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import Task from '../Task/Task'
 import "./ListTask.css"
 import { Button } from "react-bootstrap"
 import { useSelector } from "react-redux"
 
 function ListTask() {
-    const todos = useSelector(state => state.todosReducer.todos)
+    const todos = useSelector(state => state.todosReducer.todos);
+    const [filtred, setFiltred]= useState(todos);
+    
+    useEffect(() => {
+        setFiltred(todos);
+    }, [todos])
+    const handleClick = ()=>{
+        setFiltred (todos.filter((task)=> task.isDone === true))onClick={handleClick}
+    }
+    const handleClick2 = ()=>{
+        setFiltred (todos.filter((task)=> task.isDone === false))
+    }
+    const handleClick3 = ()=>{
+        setFiltred (todos)
+    }
+
     return (
         <div className="listTask">
             <div className="filter_btns" style={{ marginBottom: "25px" }}>
-                <Button variant="outline-success" >Show Done</Button>
-                <Button variant="outline-danger" > Show Not Done</Button>
-                <Button variant="info">Remove All Filters</Button>
+                <Button variant="outline-success" onClick={handleClick}>Show Done</Button>
+                <Button variant="outline-danger" onClick={handleClick2}> Show Not Done</Button>
+                <Button variant="info" onClick={handleClick3}>Remove All Filters</Button>
             </div>
-            {todos.map((task, index) => (<Task toDo_task={task} key={index} index={index} />))}
+            {filtred.map((task, index) => (<Task toDo_task={task} key={index} index={index} />))}
         </div >
     )
 }

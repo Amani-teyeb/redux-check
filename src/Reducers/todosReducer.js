@@ -6,22 +6,22 @@ const initialState = {
   todos: [
     {
       id: Math.random(),
-      task: "Climb Mountain Everest",
+      task: "Become a Webdeveloper",
       isDone: false,
     },
     {
       id: Math.random(),
-      task: "Swim in the Great Barrier Reef",
+      task: "Get Job",
       isDone: false,
     },
     {
       id: Math.random(),
-      task: "Go to Hawaii",
+      task: "Develop my career",
       isDone: false,
     },
     {
       id: Math.random(),
-      task: "Visit the great wall of china",
+      task: "Build my own project",
       isDone: false,
     },
   ],

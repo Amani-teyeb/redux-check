@@ -3,7 +3,7 @@ import { Modal, Button, Form } from "react-bootstrap"
 import {editTask } from "../../Actions"
 import { useDispatch } from "react-redux"
 
-function EditTask({id}) {
+function EditTask({id, task}) {
     const [newTask, setNewTask] = useState({})
     
     const handleChange = (input) => {
@@ -31,7 +31,7 @@ function EditTask({id}) {
                     <Modal.Title>Edit Task </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <Form.Control type="text" placeholder="Edit your task here..." onChange={(e) => handleChange(e.target.value)} />
+                    <Form.Control type="text" placeholder={task} onChange={(e) => handleChange(e.target.value)} />
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={handleClose}>

@@ -19,7 +19,7 @@ function Task({ toDo_task, index }) {
             <h4 style={{ textDecoration: toDo_task.isDone ? "line-through" : "none" }}><span className="Task_Number">Task {Number(index) + 1}:</span> {toDo_task.task}</h4>
             <div className="taskBtns">
                 <Button variant={toDo_task.isDone ? "outline-danger" : "success"} onClick={handleClick}>{toDo_task.isDone ? "Undo" : "Done"}</Button>
-                <EditTask id={toDo_task.id} key={index} />
+                <EditTask id={toDo_task.id} task ={toDo_task.task} key={index} />
             </div>
         </div>
     )
